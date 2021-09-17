@@ -1,4 +1,5 @@
 # GalleryPoint
+- Gallary to store photos built using Django
 - User can store photos in different categories or can add new categories.
 - Search photos according to different categories.
 
