@@ -1,0 +1,47 @@
+.image-thumbnail {
+    height: 200px;
+    object-fit: cover;
+}
+.showImg {
+    text-align: center;
+    margin: 20px;
+    justify-content: center;
+    padding-botom:100px;
+}
+.mainImg {
+    height: 450px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.category {
+    color: #00FF00;
+}
+.description {
+    color: #00FFFF;
+}
+.categoriesMenu {
+    border:2px solid #3333ff;
+    border-radius: 5px;
+    padding-top: 5px;
+}
+.categoryOption,.categoryHeader {
+    text-align: center;
+}
+.categoryHeader {
+    border-bottom:2px solid #3333ff;
+}
+.addPhoto {
+    border:2px solid #3333ff;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.photoFrame {
+    margin-top: 20px;
+}
+.noPhotos{
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GalleryPoint</title>
+
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/master.css'%}">
+
+  </head>
+  <body class="m-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card  categoriesMenu" >
+              <div class="card-header categoryHeader">
+                Categories
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item categoryOption">
+                  <a href="{% url 'album' %}">All</a>
+                </li>
+                {% for category in categories %}
+                <li class="list-group-item categoryOption">
+                  <a href="{% url 'album' %}?category={{category.name}}">
+                    {{category.name}}
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <ul class="list-group list-group-flush addPhoto">
+              <li class="list-group-item" >
+                <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm" >Add New Photo</a>
+              </li>
+              <ul/>
+
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+
+              {% for photo in photos %}
+              <div class="col-md-4">
+                <div class="card my-2 photoFrame">
+                  <img class="image-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
+                  <div class="card-body">
+                    <small>Category : {{photo.category.name}} </small>
+                  </div>
+                  <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-2">View</a>
+                </div>
+              </div>
+              {% empty %}
+              <h3 class-"noPhotos">No photos...</h3>
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </body>
+</html>
